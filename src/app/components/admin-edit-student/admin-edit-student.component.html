@@ -1,0 +1,56 @@
+<h1 mat-dialog-title>Edit Student Details</h1>
+<div mat-dialog-content>
+    <form>
+        <mat-form-field class="edit-student-full-width">
+            <mat-label>USN</mat-label>
+            <input type="text" disabled matInput name="studentUSN" [(ngModel)]="data.studentUSN">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="edit-student-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" disabled matInput name="studentEmail" [(ngModel)]="data.studentEmail">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="edit-student-full-width">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput name="studentName" [(ngModel)]="data.studentName">
+            <button mat-button *ngIf="studentName" disabled matSuffix mat-icon-button aria-label="Clear" (click)="studentName=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="edit-student-full-width">
+            <mat-label>College</mat-label>
+            <input type="text" matInput name="studentCollege" [(ngModel)]="data.studentCollege">
+            <button mat-button *ngIf="studentCollege" disabled matSuffix mat-icon-button aria-label="Clear" (click)="studentCollege=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="edit-student-full-width">
+            <mat-label>Course</mat-label>
+            <input type="text" matInput name="studentCourse" [(ngModel)]="data.studentCourse">
+            <button mat-button *ngIf="studentCourse" disabled matSuffix mat-icon-button aria-label="Clear" (click)="studentCourse=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="edit-student-full-width">
+            <mat-label>Department</mat-label>
+            <input type="text" matInput name="studentDepartment" [(ngModel)]="data.studentDepartment">
+            <button mat-button *ngIf="studentDepartment" disabled matSuffix mat-icon-button aria-label="Clear" (click)="studentDepartment=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="edit-student-full-width">
+            <mat-label>Contact</mat-label>
+            <input type="tel" matInput name="studentContact" [(ngModel)]="data.studentContact">
+            <button mat-button *ngIf="studentContact" disabled matSuffix mat-icon-button aria-label="Clear" (click)="studentContact=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="submit" (click)="onStudentUpdate(data._id)" value="Submit">Update</button>
+    </form>
+</div>

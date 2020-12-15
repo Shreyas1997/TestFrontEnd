@@ -1,0 +1,51 @@
+<mat-toolbar class="mat-elevation-z6" color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Assessment</span>
+    <span class="Dspacer"></span>
+    <button mat-flat-button color="warn" (click)="onLogout()">Logout</button>
+</mat-toolbar>
+<div>
+    <div style="display: flex; padding: 1%;">
+        <div>
+            <h1 class="display-4">{{testID}}</h1>
+            <h5 class="lead">{{studentUSN}}</h5>
+        </div>
+        <span class="Dspacer"></span>
+        <div>
+            <p class="lead">{{counter+1}}<span>/</span>{{totalCount}}</p>
+        </div>
+    </div>
+    <br>
+    <div class="mainQuestion">
+        <mat-card class="question-card">
+            <mat-progress-bar [mode]="determinate" [bufferValue]="totalCount" [value]="(counter+1)*100/totalCount"></mat-progress-bar>
+            <br>
+            <br>
+            <mat-card-content>
+                <h3>{{questionBody}}</h3>
+                <mat-list role="list">
+                    <mat-list-item role="listitem" *ngFor="let ops of optionBody">
+                        <strong *ngIf="ops.value != undefined">{{ops.key}}&nbsp;:&nbsp;</strong>
+                        <mat-radio-button class="radio-button" *ngIf="ops.value != undefined" name="option" (change)='onSelectionChange(ops.key, questionID, questionBody)' [value]="ops.key">
+                            {{ops.value}}
+                        </mat-radio-button>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button color="primary" *ngIf="counter === 0" disabled>Previous</button>
+                <button mat-button color="primary" *ngIf="counter > 0" (click)="onPrevious()">Previous</button> &nbsp;
+                <button mat-button color="primary" *ngIf="counter < totalCount-1" (click)="onNext()">Next</button>
+                <button mat-button color="primary" *ngIf="counter === totalCount-1" (click)="onFinish()">Finish</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+    <div style="display: flex;">
+        <div style="margin-right: 1%;" *ngFor="let ans of userAnswer">
+            <p>{{ans.option}}</p>
+        </div>
+    </div>
+</div>

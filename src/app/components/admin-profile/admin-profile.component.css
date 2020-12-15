@@ -1,0 +1,49 @@
+.adminProfileDiv {
+    padding: 1%;
+    margin: 0% auto;
+}
+
+.profile-icon {
+    color: #408cff;
+    font-size: 75px;
+    margin: 0 auto;
+}
+
+.card-div {
+    display: grid;
+    place-items: center;
+}
+
+.logo-div {
+    padding: 3%;
+    place-items: center;
+    margin: 0 auto;
+    width: 81px;
+    height: 81px;
+}
+
+.gaper {
+    height: 70px;
+    width: 100%;
+}
+
+form {
+    display: grid;
+    place-items: center;
+    padding: 10%;
+}
+
+.admin-full-width {
+    width: 100%;
+}
+
+.edit-credentials-card {
+    display: grid;
+}
+
+.header-icon {
+    font-size: 35px;
+    height: 36px;
+    width: 36px;
+    border: 0.5px solid #f9efef;
+}

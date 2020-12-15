@@ -1,0 +1,20 @@
+<div class="row row-custom">
+    <div *ngIf="allTests.length ==0">
+        <p class="lead" style="width: 100%; text-align: center;">You are not enrolled in any assessments.</p>
+        <p class="lead" style="width: 100%; text-align: center;">
+            <button mat-button color="primary" (click)="openTestList()">Enroll</button>
+        </p>
+    </div>
+    <div class="row" style="width: 100%; height: auto;">
+        <div class="card  mat-elevation-z2" style="width: 18rem; margin: 2%;" *ngFor="let item of allTests.slice().reverse()">
+            <img class="card-img-top" src="assets/adminBg.gif" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{item.testID}}</h5>
+                <p class="card-text">Date: {{item.testDate}}</p>
+                <p class="card-text">Total Questions: {{item.totalQuestions}}</p>
+                <p class="card-text">Duration: {{item.testDuration}}</p>
+                <button mat-raised-button (click)="onStartTest(item._id, item.testID, studentUSN, studentName)">Start Test</button>
+            </div>
+        </div>
+    </div>
+</div>

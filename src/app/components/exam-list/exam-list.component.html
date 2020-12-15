@@ -1,0 +1,55 @@
+<div class="examListDiv mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="testID">
+            <th mat-header-cell *matHeaderCellDef> Exam Title </th>
+            <td mat-cell *matCellDef="let item"> {{item.testID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="testDate">
+            <th mat-header-cell *matHeaderCellDef> Test Date </th>
+            <td mat-cell *matCellDef="let item"> {{item.testDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="testDuration">
+            <th mat-header-cell *matHeaderCellDef> Duration </th>
+            <td mat-cell *matCellDef="let item"> {{item.testDuration}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalQuestions">
+            <th mat-header-cell *matHeaderCellDef> Total Questions </th>
+            <td mat-cell *matCellDef="let item"> {{item.totalQuestions}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="marksForRightAnswer">
+            <th mat-header-cell *matHeaderCellDef> Marks For Right Answer </th>
+            <td mat-cell *matCellDef="let item"> {{item.marksForRightAnswer}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="marksForWrongAnswer">
+            <th mat-header-cell *matHeaderCellDef> Marks For Wrong Answer </th>
+            <td mat-cell *matCellDef="let item"> {{item.marksForWrongAnswer}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef [attr.colspan]="2"> Action </th>
+            <td mat-cell *matCellDef="let item">
+                <button mat-raised-button class="tabAdminButton" color="accent" type="submit" (click)="onViewDetails(item.testID)" value="View Details">
+                    View Details
+                </button>
+                <button mat-raised-button class="tabAdminButton" color="primary" type="submit" (click)="openDialog(item._id, item.testID, item.testDate, item.testDuration, item.marksForRightAnswer, item.marksForWrongAnswer)" value="Edit">
+                    Edit
+                </button>
+                <button mat-raised-button class="tabAdminButton" color="warn" type="submit" (click)="onDeleteTest(item._id, item.testID)" value="Delete">
+                    Delete
+                </button>
+            </td>
+
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+    </mat-paginator>
+</div>

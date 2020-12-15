@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Edit Question Details</h1>
+<div mat-dialog-content>
+    <form>
+        <mat-form-field class="edit-question-full-width">
+            <mat-label>Question</mat-label>
+            <textarea matInput name="question" [(ngModel)]="data.question"></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="edit-question-full-width">
+            <mat-label>Option A</mat-label>
+            <input type="text" matInput name="optionA" [(ngModel)]="data.a">
+            <button mat-button *ngIf="optionA" disabled matSuffix mat-icon-button aria-label="Clear" (click)="optionA=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="edit-question-full-width">
+            <mat-label>Option B</mat-label>
+            <input type="text" matInput name="optionB" [(ngModel)]="data.b">
+            <button mat-button *ngIf="optionB" disabled matSuffix mat-icon-button aria-label="Clear" (click)="optionB=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="edit-question-full-width">
+            <mat-label>Option C</mat-label>
+            <input type="text" matInput name="optionC" [(ngModel)]="data.c">
+            <button mat-button *ngIf="optionC" disabled matSuffix mat-icon-button aria-label="Clear" (click)="optionC=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="edit-question-full-width">
+            <mat-label>Option D</mat-label>
+            <input type="text" matInput name="optionD" [(ngModel)]="data.d">
+            <button mat-button *ngIf="optionD" disabled matSuffix mat-icon-button aria-label="Clear" (click)="optionD=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="edit-question-full-width">
+            <mat-label>Correct Option</mat-label>
+            <input type="text" matInput name="correctOption" [(ngModel)]="data.correctOption">
+            <button mat-button *ngIf="correctOption" disabled matSuffix mat-icon-button aria-label="Clear" (click)="correctOption=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="submit" (click)="onQuestionUpdate(data._id)" value="Submit">Update</button>
+    </form>
+</div>

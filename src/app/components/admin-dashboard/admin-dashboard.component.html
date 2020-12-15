@@ -1,0 +1,57 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <mat-list role="menu">
+                <a mat-list-item routerLink="/adminDashboard/exam" routerLinkActive="active">
+                    <mat-icon mat-list-icon color="primary">content_paste</mat-icon>
+                    <span>&nbsp;</span>
+                    <span style="color:#673ab7;">
+                        Exam
+                    </span>
+                </a>
+                <a mat-list-item routerLink="/adminDashboard/questionDashboard" routerLinkActive="active">
+                    <mat-icon mat-list-icon color="primary">post_add</mat-icon>
+                    <span>&nbsp;</span>
+                    <span style="color:#673ab7;">
+                        Add Questions
+                    </span>
+                </a>
+                <a mat-list-item routerLink="/adminDashboard/student" routerLinkActive="active">
+                    <mat-icon mat-list-icon color="primary">group_add</mat-icon>
+                    <span>&nbsp;</span>
+                    <span style="color:#673ab7;">
+                        Student
+                    </span>
+                </a>
+                <a mat-list-item routerLink="/adminDashboard/faculty" routerLinkActive="active">
+                    <mat-icon mat-list-icon color="primary">person_add</mat-icon>
+                    <span>&nbsp;</span>
+                    <span style="color:#673ab7;">
+                        Faculty
+                    </span>
+                </a>
+                <a mat-list-item color="warn" (click)="onLogout()">
+                    <mat-icon mat-list-icon color="warn">exit_to_app</mat-icon>
+                    <span>&nbsp;</span>
+                    <span style="color:#f44336;">
+                      LogOut
+                    </span>
+                </a>
+            </mat-list>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+            <span>Admin Dashboard</span>
+            <span class="spacer"></span>
+            <a mat-list-item routerLink="/adminDashboard/profile" routerLinkActive="active">
+                <mat-icon class="profile-icon" style="color:#ffffff;">admin_panel_settings</mat-icon>
+            </a>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

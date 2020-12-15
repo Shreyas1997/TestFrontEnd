@@ -1,0 +1,22 @@
+<mat-toolbar class="mat-elevation-z6" color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="onBack()">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <span>All Assessments</span>
+    <span class="Dspacer"></span>
+    <button mat-flat-button color="warn" (click)="onLogout()">Logout</button>
+</mat-toolbar>
+<div style="width: 100%; padding: 2%; height: auto;">
+    <div class="row" style="width: 100%; height: auto;">
+        <div class="card  mat-elevation-z2" style="width: 18rem; margin: 2%;" *ngFor="let item of allTests.slice().reverse()">
+            <img class="card-img-top" src="assets/adminBg.gif" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{item.testID}}</h5>
+                <p class="card-text">Date: {{item.testDate}}</p>
+                <p class="card-text">Total Questions: {{item.totalQuestions}}</p>
+                <p class="card-text">Duration: {{item.testDuration}}</p>
+                <button mat-raised-button (click)="onEnroll(item._id, item.testID, studentUSN)" color="primary">Enroll</button>
+            </div>
+        </div>
+    </div>
+</div>

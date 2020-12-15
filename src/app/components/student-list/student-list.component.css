@@ -1,0 +1,26 @@
+.studentListDiv {
+    width: auto;
+    overflow-x: scroll;
+}
+
+table {
+    width: 100%;
+}
+
+@media only screen and (max-width: 850px) {
+    table {
+        width: max-content;
+    }
+}
+
+th.mat-header-cell {
+    text-align: center !important;
+}
+
+td.mat-cell {
+    text-align: center !important;
+}
+
+.tabAdminStudentButton {
+    margin: 1%;
+}

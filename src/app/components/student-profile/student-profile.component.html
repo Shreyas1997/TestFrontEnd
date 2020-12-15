@@ -1,0 +1,95 @@
+<mat-toolbar class="mat-elevation-z6" color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="onBack()">
+        <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <span>Profile</span>
+    <span class="Dspacer"></span>
+    <button mat-flat-button color="warn" (click)="onLogout()">Logout</button>
+</mat-toolbar>
+<div style="padding: 2%; height: auto;">
+    <div class="row" style="width: 100%; margin-left: 0px;">
+        <mat-card class="mat-elevation-z2" style="margin-bottom: 0.5%; background-color: #673ab7;">
+            <div mat-card-avatar class="card-image mat-elevation-z2"></div>
+            <br>
+            <mat-card-title class="text-white" style="text-align: center;">{{studentName}}</mat-card-title>
+            <mat-card-subtitle class="text-white" style="text-align: center;">{{studentUSN}}</mat-card-subtitle>
+        </mat-card>
+        <mat-card style="display: block; box-shadow: none;">
+            <div class="row">
+                <div class="col-6">
+                    <mat-card class="mat-elevation-z2">
+                        <mat-card-title>Personal Info</mat-card-title>
+                        <mat-card-content>
+                            <p class="h6">Mail ID: &nbsp; {{studentInfo.studentEmail}}</p>
+                            <p class="h6">Contact: &nbsp; {{studentInfo.studentContact}}</p>
+                            <p class="h6">College: &nbsp; {{studentInfo.studentCollege}}</p>
+                            <p class="h6">Course: &nbsp; {{studentInfo.studentCourse}}</p>
+                            <p class="h6">Department: &nbsp; {{studentInfo.studentDepartment}}</p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col-6">
+                    <mat-card class="mat-elevation-z2">
+                        <mat-card-title>Enrolled Assessments</mat-card-title>
+                        <mat-card-content>
+                            <mat-list role="list" style="overflow-y: scroll; height: 100px;">
+                                <mat-list-item role="listitem" *ngFor="let item of studentTests">
+                                    {{item.testID}}
+                                </mat-list-item>
+                            </mat-list>
+                            <p class="h6">Total Count: &nbsp; <strong>{{studentTests.length}}</strong></p>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col-12" style="margin-top: 1%;">
+                    <mat-card *ngIf="studentReport == null">
+                        <mat-card-header style="place-content: center;">
+                            <mat-card-title style="text-align: center;">Report</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content style="text-align: center;">
+                            <p class="lead text-muted">You have not attempted the assessments!</p>
+                        </mat-card-content>
+                    </mat-card>
+                    <mat-card *ngIf="studentReport != null" style="background-color: #673ab7;">
+                        <mat-card-header style="place-content: center;">
+                            <mat-card-title class="text-white" style="text-align: center;">Report</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <mat-accordion>
+                                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let items of studentReport">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            <strong>Test ID:</strong>&nbsp;{{items.testID}}
+                                        </mat-panel-title>
+                                        <mat-panel-description>
+                                            <strong>Score Obtained:</strong>&nbsp;{{items.totalScore}}
+                                        </mat-panel-description>
+                                        <mat-panel-description>
+                                            <strong>Maximum Score:</strong>&nbsp;{{items.maxScore}}
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <mat-list role="list">
+                                        <div style="display: flex; width: 100%;">
+                                            <div>
+                                                <mat-progress-spinner [color]="color" [mode]="mode" [value]="(items.totalScore)*100/items.maxScore">
+                                                </mat-progress-spinner>
+                                            </div>
+                                            <div>
+                                                {{items.totalScore}}/{{items.maxScore}}
+                                            </div>
+                                        </div>
+                                        <mat-list-item role="listitem" *ngFor="let item of items.answers">
+                                            <p><strong>Question:</strong>&nbsp;{{item.question}}</p>&nbsp;
+                                            <br>
+                                            <p><strong>Candidates Answer:</strong> &nbsp; {{item.option}}</p>
+                                        </mat-list-item>
+                                    </mat-list>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

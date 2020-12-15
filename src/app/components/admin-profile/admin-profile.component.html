@@ -1,0 +1,20 @@
+<div class="adminProfileDiv">
+    <h2>Admin Profile</h2>
+    <div class="card-div">
+        <mat-card class="edit-credentials-card">
+            <mat-card-header>
+                <mat-icon mat-card-avatar class="header-icon" color="accent">admin_panel_settings</mat-icon>
+                <mat-card-title>Hi Admin!</mat-card-title>
+                <mat-card-subtitle>You can change your credentials here</mat-card-subtitle>
+            </mat-card-header>
+            <div class="logo-div">
+                <mat-icon class="profile-icon">security</mat-icon>
+            </div>
+            <div class="gaper"></div>
+            <mat-card-content style="margin: 0 auto;">
+                <h2 style="text-align: center;">{{adminName}}</h2>
+                <button mat-stroked-button color="primary" type="submit" (click)="openDialog()" value="Submit">Change Password</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

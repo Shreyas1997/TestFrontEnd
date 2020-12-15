@@ -1,0 +1,67 @@
+<div class="mainRegister">
+    <mat-card class="register-card">
+        <mat-card-header style="place-content: center;">
+            <mat-card-title style="text-align: center;">Welcome!</mat-card-title>
+            <mat-card-subtitle style="text-align: center;">Fill in your informations</mat-card-subtitle>
+        </mat-card-header>
+        <mat-icon mat-card-image class="profile-icon">account_circle</mat-icon>
+        <mat-card-content>
+            <h5 style="color:#f44336; text-align: center;">{{wrongCredentials}}</h5>
+            <form>
+                <div class="main-grid">
+                    <div class="grid-left">
+                        <mat-form-field class="student-full-width">
+                            <mat-label>Enter USN</mat-label>
+                            <input type="text" matInput required placeholder="Ex. 4ST19IS045" name="studentUSN" [(ngModel)]="studentUSN">
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="student-full-width">
+                            <mat-label>Enter Mail Address</mat-label>
+                            <input type="email" matInput required placeholder="Ex. shaam@abc.com" name="studentEmail" [(ngModel)]="studentEmail">
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="student-full-width">
+                            <mat-label>Enter Name</mat-label>
+                            <input type="text" matInput required placeholder="Ex. Shaam" name="studentName" [(ngModel)]="studentName">
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="student-full-width">
+                            <mat-label>Password</mat-label>
+                            <input [type]="hide ? 'password' : 'text'" matInput required name="password" [(ngModel)]="password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                    <div class="grid-right">
+                        <mat-form-field class="student-full-width">
+                            <mat-label>Enter College Name</mat-label>
+                            <input type="text" matInput required placeholder="Ex. Christ college" name="studentCollege" [(ngModel)]="studentCollege">
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="student-full-width">
+                            <mat-label>Enter Course Name</mat-label>
+                            <input type="text" matInput required placeholder="Ex. B.Tech" name="studentCourse" [(ngModel)]="studentCourse">
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="student-full-width">
+                            <mat-label>Enter Department Name</mat-label>
+                            <input type="text" matInput required placeholder="Ex. Computer Science and Engineering" name="studentDepartment" [(ngModel)]="studentDepartment">
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="student-full-width">
+                            <mat-label>Enter Contact No.</mat-label>
+                            <input type="tel" pattern="[0-9]{10}" matInput required placeholder="Ex. 99999999" name="studentContact" [(ngModel)]="studentContact">
+                        </mat-form-field>
+                        <br>
+                    </div>
+                </div>
+                <br>
+                <button mat-stroked-button (click)="onStudentRegisterSubmit()" color="primary" type="submit" value="Submit">Register</button>
+            </form>
+            <div style="display: grid; place-items: center;">
+                <p style="text-align: center;">Already have an account?&nbsp; <a style="text-decoration: none;" routerLink="/student/studentLogin" routerLinkActive="active">Login</a></p>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

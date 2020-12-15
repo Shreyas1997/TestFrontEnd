@@ -1,0 +1,44 @@
+.mainRegister {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+form {
+    display: grid;
+    place-items: center;
+}
+
+.student-full-width {
+    width: 100%;
+}
+
+.register-card {
+    display: grid;
+    height: 500px;
+    width: 800px;
+}
+
+.profile-icon {
+    text-align: center;
+    height: 81px;
+    width: 81px;
+    place-content: center;
+    margin: 0 auto;
+    font-size: 80px;
+    padding: 5px;
+}
+
+.main-grid {
+    display: inline-flex;
+    width: 100%;
+    place-content: center;
+}
+
+.grid-left {
+    padding-right: 5%;
+}
+
+.grid-right {
+    padding-left: 5%;
+}

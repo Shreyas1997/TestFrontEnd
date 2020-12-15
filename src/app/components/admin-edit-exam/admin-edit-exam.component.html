@@ -1,0 +1,85 @@
+<h1 mat-dialog-title>Edit Test Details</h1>
+<div mat-dialog-content>
+    <form>
+        <mat-form-field class="example-form-field">
+            <mat-label>Test ID</mat-label>
+            <input type="text" disabled matInput name="testID" [(ngModel)]="data.testID">
+            <button mat-button *ngIf="testID" disabled matSuffix mat-icon-button aria-label="Clear" (click)="testID=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-form-field">
+            <mat-label>Date</mat-label>
+            <input type="datetime-local" matInput name="testDate" [(ngModel)]="data.testDate">
+            <button mat-button *ngIf="testDate" matSuffix mat-icon-button aria-label="Clear" (click)="testDate=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Duration</mat-label>
+            <mat-select name="testDuration" [(ngModel)]="data.testDuration">
+                <mat-option [value]="5">
+                    5 Minute
+                </mat-option>
+                <mat-option [value]="30">
+                    30 Minute
+                </mat-option>
+                <mat-option [value]="60">
+                    1 Hour
+                </mat-option>
+                <mat-option [value]="120">
+                    2 Hour
+                </mat-option>
+                <mat-option [value]="180">
+                    3 Hour
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Marks for Correct Answer</mat-label>
+            <mat-select name="marksForRightAnswer" [(ngModel)]="data.marksForRightAnswer">
+                <mat-option [value]="1">
+                    +1
+                </mat-option>
+                <mat-option [value]="2">
+                    +2
+                </mat-option>
+                <mat-option [value]="3">
+                    +3
+                </mat-option>
+                <mat-option [value]="4">
+                    +4
+                </mat-option>
+                <mat-option [value]="5">
+                    +5
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Marks for Wrong Answer</mat-label>
+            <mat-select name="marksForWrongAnswer" [(ngModel)]="data.marksForWrongAnswer">
+                <mat-option [value]="0">
+                    0
+                </mat-option>
+                <mat-option [value]="-1">
+                    -1
+                </mat-option>
+                <mat-option [value]="-1.25">
+                    -1.25
+                </mat-option>
+                <mat-option [value]="-1.50">
+                    -1.50
+                </mat-option>
+                <mat-option [value]="-2">
+                    -2
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="submit" (click)="onExamUpdate(data._id)" value="Submit">Update</button>
+    </form>
+</div>

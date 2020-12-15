@@ -1,0 +1,61 @@
+<div class="studentListDiv mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="studentUSN">
+            <th mat-header-cell *matHeaderCellDef> USN </th>
+            <td mat-cell *matCellDef="let item"> {{item.studentUSN}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="studentEmail">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let item"> {{item.studentEmail}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="studentName">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let item"> {{item.studentName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="collegeName">
+            <th mat-header-cell *matHeaderCellDef> College </th>
+            <td mat-cell *matCellDef="let item"> {{item.studentCollege}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="studentCourse">
+            <th mat-header-cell *matHeaderCellDef> Course </th>
+            <td mat-cell *matCellDef="let item"> {{item.studentCourse}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="studentDepartment">
+            <th mat-header-cell *matHeaderCellDef> Department </th>
+            <td mat-cell *matCellDef="let item"> {{item.studentDepartment}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="studentContact">
+            <th mat-header-cell *matHeaderCellDef> Contact </th>
+            <td mat-cell *matCellDef="let item"> {{item.studentContact}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef [attr.colspan]="2"> Action </th>
+            <td mat-cell *matCellDef="let item">
+                <button mat-raised-button class="tabAdminStudentButton" color="accent" type="submit" (click)="onGenerateReport(item.studentUSN, item.studentName)" value="Generate Report">
+                    Generate Report
+                </button>
+                <button mat-raised-button class="tabAdminStudentButton" color="primary" type="submit" (click)="onEditStudent(item._id, item.studentUSN, item.studentEmail, item.studentName, item.studentCollege, item.studentCourse, item.studentDepartment, item.studentContact)"
+                    value="Edit">
+                    Edit
+                </button>
+                <button mat-raised-button class="tabAdminStudentButton" color="warn" type="submit" (click)="onDeleteStudent(item.studentUSN, item.studentEmail)" value="Delete">
+                    Delete
+                </button>
+            </td>
+
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+    </mat-paginator>
+</div>

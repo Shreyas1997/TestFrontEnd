@@ -1,0 +1,33 @@
+<div>
+    <mat-card class="signin-card">
+        <mat-card-header>
+            <mat-icon mat-card-avatar class="header-icon" color="accent">admin_panel_settings</mat-icon>
+            <mat-card-title>Welcome Admin</mat-card-title>
+            <mat-card-subtitle>Enter your credentials</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <h5 style="color:#f44336; text-align: center;">{{wrongCredentials}}</h5>
+            <form>
+                <mat-form-field class="admin-full-width">
+                    <mat-label>Admin Name</mat-label>
+                    <input matInput placeholder="Ex. AdminLocal" name="adminName" [(ngModel)]="adminName">
+                </mat-form-field>
+                <br>
+                <mat-form-field class="admin-full-width">
+                    <mat-label>Password</mat-label>
+                    <input [type]="hide ? 'password' : 'text'" matInput name="password" [(ngModel)]="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <br>
+                <button mat-stroked-button (click)="onAdminLoginSubmit()" color="primary" type="submit" value="Submit">SignIn</button>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="foot">
+
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

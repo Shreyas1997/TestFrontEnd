@@ -1,0 +1,13 @@
+.Dspacer {
+    flex: 1 1 auto;
+}
+
+.card-image {
+    border-radius: 100%;
+    border: 3px solid #ffffff;
+    background-image: url('../../../assets/profile-pic.jpg');
+    background-size: cover;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+}

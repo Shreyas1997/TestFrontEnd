@@ -1,0 +1,73 @@
+<div class="questionDash">
+    <div>
+        <h2>Add questions</h2>
+        <form (submit)="onQuestionBulkUpload()">
+            <mat-form-field appearance="fill">
+                <mat-label>Choose the Test ID</mat-label>
+                <mat-select name="testID" [(ngModel)]="testID" (selectionChange)="onIdSelect(testID)">
+                    <mat-option *ngFor="let item of allTests" [value]="item.testID">
+                        {{item.testID}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <label for="uploadQuestions">Upload File (.xls or .xlsx): </label>
+            <input type="file" name="sheet" multiple (change)="onFileSelect($event)">
+            <br>
+            <br>
+            <button mat-raised-button color="primary" type="submit" value="Upload">Upload</button>
+        </form>
+    </div>
+    <br>
+    <div class="questionDashListDiv mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+            <ng-container matColumnDef="question">
+                <th mat-header-cell *matHeaderCellDef> Question </th>
+                <td mat-cell *matCellDef="let item"> {{item.question}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="correctOption">
+                <th mat-header-cell *matHeaderCellDef> Correct Option </th>
+                <td mat-cell *matCellDef="let item"><strong>{{item.correctOption}}</strong></td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef [attr.colspan]="2"> Action </th>
+                <td mat-cell *matCellDef="let item">
+                    <button mat-raised-button class="tabQuestionButton mat-elevation-z2" color="primary" type="submit" (click)="onUpdateQuestion(item._id, item.testID, item.question, item.correctOption, item.a, item.b, item.c, item.d)" value="Edit">
+                        Edit
+                    </button>
+                    <button mat-raised-button class="tabQuestionButton mat-elevation-z2" color="warn" type="submit" (click)="onDeleteQuestion(item._id, item.testID)" value="Delete">
+                        Delete
+                    </button>
+                </td>
+
+            </ng-container>
+
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                    <div class="option-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                        <div>
+                            <mat-list role="list">
+                                <div mat-subheader>Options</div>
+                                <mat-list-item role="listitem"><strong>a:</strong>&nbsp;{{element.a}}</mat-list-item>
+                                <mat-list-item role="listitem"><strong>b:</strong>&nbsp;{{element.b}}</mat-list-item>
+                                <mat-list-item role="listitem"><strong>c:</strong>&nbsp;{{element.c}}</mat-list-item>
+                                <mat-list-item role="listitem"><strong>d:</strong>&nbsp;{{element.d}}</mat-list-item>
+                            </mat-list>
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="option-element-row" [class.example-expanded-row]="expandedElement === element" (click)="expandedElement = expandedElement === element ? null : element">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="option-detail-row"></tr>
+        </table>
+
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+        </mat-paginator>
+    </div>
+</div>

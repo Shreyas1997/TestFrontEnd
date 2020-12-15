@@ -1,0 +1,25 @@
+<mat-toolbar class="mat-elevation-z6" color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Student Dashboard</span>
+    <span class="Dspacer"></span>
+    <button mat-flat-button color="primary" (click)="onProfile()">
+        <mat-icon>account_circle</mat-icon>&nbsp;
+        Profile
+    </button> &nbsp;
+    <button mat-flat-button color="warn" (click)="onLogout()">Logout</button>
+</mat-toolbar>
+<div>
+    <div class="jumbotron jumbotron-fluid mainExam ">
+        <h3 class="display-6">Welcome <strong>{{name}}</strong></h3>
+        <p class="lead"><strong>USN:</strong> {{usn}}</p>
+        <button mat-flat-button color="primary" (click)="openTestList()">Show Available Assessments</button>
+    </div>
+
+    <div class="mainExam">
+        <p class="lead"><strong>Enrolled Assessments:</strong></p>
+        <br>
+        <app-student-exam-list [studentUSN]="usn" [studentName]="name"></app-student-exam-list>
+    </div>
+</div>

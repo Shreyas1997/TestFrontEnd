@@ -1,0 +1,9 @@
+.Dspacer {
+    flex: 1 1 auto;
+}
+
+.question-card {
+    display: grid;
+    height: auto;
+    width: 100%;
+}

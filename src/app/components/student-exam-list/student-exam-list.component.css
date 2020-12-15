@@ -1,0 +1,12 @@
+.row-custom {
+    margin: 0 auto;
+}
+
+.col-custom {
+    margin: 0 auto;
+}
+
+.card-custom {
+    width: 18rem;
+    margin-bottom: 5%;
+}

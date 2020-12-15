@@ -1,0 +1,23 @@
+<div class="addFacultyDiv">
+    <h2>Add Faculty</h2>
+    <div>
+        <form action="" method="post">
+            <mat-form-field class="example-form-field">
+                <mat-label>Password</mat-label>
+                <input required [type]="hide ? 'password' : 'text'" matInput name="password" [(ngModel)]="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <br>
+            <br>
+            <label for="uploadStudent">Upload File (.xls or .xlsx): </label>
+            <input required type="file" name="sheet" multiple (change)="onFileSelect($event)">
+            <br>
+            <br>
+            <button mat-raised-button color="primary" type="submit" value="Upload">Upload</button>
+        </form>
+    </div>
+    <br>
+    <app-faculty-list></app-faculty-list>
+</div>

@@ -1,0 +1,44 @@
+.questionDashListDiv {
+    width: auto;
+    overflow-x: scroll;
+}
+
+table {
+    width: 100%;
+}
+
+@media only screen and (max-width: 850px) {
+    table {
+        width: max-content;
+    }
+}
+
+tr.option-detail-row {
+    height: 0;
+}
+
+tr.option-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+}
+
+tr.option-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.option-element-row td {
+    border-bottom-width: 0;
+}
+
+.option-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.tabQuestionButton {
+    margin: 1%;
+}
+
+.questionDash {
+    padding: 1%;
+    margin: 0% auto;
+}
